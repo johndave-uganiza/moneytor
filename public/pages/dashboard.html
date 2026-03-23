@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moneytor - Dashboard</title>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css"
+        integrity="sha512-t7Few9xlddEmgd3oKZQahkNI4dS6l80+eGEzFQiqtyVYdvcSG2D3Iub77R20BdotfRPA9caaRkg1tyaJiPmO0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../../src/assets/css/dashboard.css">
+    <link rel="stylesheet" href="../../src/assets/css/global.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns" defer></script>
+    <script type="module" src="../../src/app.js" defer></script>
+</head>
+
+<body id="dashboardPage" data-protected="true">
+    <nav>
+        <div class="logo">
+            <div class="logo-image">
+                <a href="index.html">
+                    <img src="../../src/assets/images/logo.jpg" alt="">
+                </a>
+            </div>
+            <span class="app-name">Moneytor</span>
+        </div>
+
+        <div class="slider">
+            <i class="bi bi-chevron-double-left"></i>
+        </div>
+
+        <div class="menu-container">
+            <ul class="menu">
+                <li class="menu-item">
+                    <a class="dashboard-link">
+                        <i class="bi bi-ui-checks-grid"></i>
+                        <span class="menu-item-name">Dashboard</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a class="transaction-link">
+                        <i class="bi bi-receipt"></i>
+                        <span class="menu-item-name">Transactions</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="logout">
+                <li class="menu-item">
+                    <a class="logout-link">
+                        <i class="bi bi-box-arrow-left"></i>
+                        <span class="menu-item-name">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class=" header">
+        <div class="search">
+            <i class="uil uil-search"></i>
+            <input type="text" placeholder="Search here..." id="searchBar">
+        </div>
+        <div class="profile">
+            <span>Hi,&nbsp;<strong id="profileName"></strong></span>
+            <i class="bi bi-person-circle"></i>
+        </div>
+    </header>
+
+    <main class="dashboard">
+        <h2>
+            <span>Dashboard</span>
+        </h2>
+        <div class="boxes">
+            <div class="box summary">
+                <div class="title">
+                    <span>Summary</span>
+                    <i class="bi bi-speedometer"></i>
+                </div>
+                <div class="content">
+                    <div class="item item-1">
+                        <div class="name">
+                            <i class="bi bi-wallet2"></i>
+                            <span>Current Budget</span>
+                        </div>
+                        <span class="data" id="currentBudget"></span>
+                    </div>
+                    <div class="item item-2">
+                        <div class="name">
+                            <i class="bi bi-calendar4-event"></i>
+                            <span>Today's Expenses</span>
+                        </div>
+                        <span class="data" id="todaysExpenses"></span>
+                    </div>
+                    <div class="item item-3">
+                        <div class="name">
+                            <i class="bi bi-calendar-check"></i>
+                            <span>Monthly Expenses</span>
+                        </div>
+                        <span class="data" id="monthlyExpenses"></span>
+                    </div>
+                    <div class="item item-4">
+                        <div class="name">
+                            <i class="bi bi-graph-up-arrow"></i>
+                            <span> Daily Expense Rate</span>
+                        </div>
+                        <span class="data" id="dailyExpenseRate"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="box chart">
+                <div class="title">
+                    <span>Analytics</span>
+                    <i class="bi bi-bar-chart-line"></i>
+                </div>
+                <div class="content">
+                    <canvas id="expenseChart"></canvas>
+                </div>
+            </div>
+            <div class="box recent">
+                <div class="title">
+                    <span>Recent Expenses</span>
+                    <i class="bi bi-clock-history"></i>
+                </div>
+                <div class="head">
+                    <span>Transaction No.</span>
+                    <span>Date</span>
+                    <span>Type</span>
+                    <span>Amount</span>
+                </div>
+                <div class="content" id="recentTransactions"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">Made with ❤️ by John Dave</footer>
+</body>
+
+</html>

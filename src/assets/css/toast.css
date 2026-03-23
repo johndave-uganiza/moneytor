@@ -1,0 +1,76 @@
+.toast-success {
+    position: fixed;
+    bottom: 48px;
+    right: 20px;
+    background: #28a745;
+    color: white;
+    padding: 15px 15px;
+    border-radius: 5px;
+    display: none;
+}
+
+.toast-error {
+    position: fixed;
+    bottom: 48px;
+    right: 20px;
+    background: #ff4d4f;
+    color: white;
+    padding: 15px 15px;
+    border-radius: 5px;
+    display: none;
+    z-index: 1000;
+}
+
+.modal.alert-delete .window {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding-top: 40px;
+    top: 40%;
+    transform: translateY(-50%);
+    margin-top: 0;
+    width: 400px;
+    height: 250px;
+    border-radius: 16px;
+    border: none;
+}
+
+.modal.alert-delete .delete-title {
+    color: #ff4d4f;
+}
+
+.modal.alert-delete .message-buttons {
+    display: flex;
+    gap: 32px;
+}
+
+.modal.alert-delete .btn-yes {
+    background: orange;
+    height: 40px;
+    width: 88px;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.modal.alert-delete .btn-yes:hover {
+    background: #ff4d4f;
+}
+
+.modal.alert-delete .btn-no {
+    background: var(--secondary-color);
+    height: 40px;
+    width: 88px;
+    border: none;
+    border-radius: 16px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.modal.alert-delete .btn-no:hover {
+    background: lightgray;
+}

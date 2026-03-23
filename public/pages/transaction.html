@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moneytor - Transactions</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/line.css">
+    <link rel="stylesheet" href="../../src/assets/css/transaction.css">
+    <link rel="stylesheet" href="../../src/assets/css/dashboard.css">
+    <link rel="stylesheet" href="../../src/assets/css/global.css">
+    <link rel="stylesheet" href="../../src/assets/css/toast.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css"
+        integrity="sha512-t7Few9xlddEmgd3oKZQahkNI4dS6l80+eGEzFQiqtyVYdvcSG2D3Iub77R20BdotfRPA9caaRkg1tyaJiPmO0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script type="module" src="../../src/app.js" defer></script>
+</head>
+
+<body id="transactionPage" data-protected="true">
+    <nav>
+        <div class="logo">
+            <div class="logo-image">
+                <a href="index.html">
+                    <img src="../../src/assets/images/logo.jpg" alt="">
+                </a>
+            </div>
+            <span class="app-name">Moneytor</span>
+        </div>
+
+        <div class="slider">
+            <i class="bi bi-chevron-double-left"></i>
+        </div>
+
+        <div class="menu-container">
+            <ul class="menu">
+                <li class="menu-item">
+                    <a class="dashboard-link">
+                        <i class="uil uil-create-dashboard"></i>
+                        <span class="menu-item-name">Dashboard</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a class="transaction-link">
+                        <i class=" uil uil-receipt"></i>
+                        <span class="menu-item-name">Transactions</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="logout">
+                <li class="menu-item">
+                    <a class="logout-link">
+                        <i class="bi bi-box-arrow-left"></i>
+                        <span class="menu-item-name">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class=" header">
+        <div class="search">
+            <i class="uil uil-search"></i>
+            <input type="text" placeholder="Search here..." id="searchBar">
+        </div>
+        <div class="profile">
+            <span>Hi,&nbsp;<strong id="profileName"></strong></span>
+            <i class="bi bi-person-circle"></i>
+        </div>
+    </header>
+
+    <main class="main">
+        <h2>Transactions</h2>
+        <section class="transactions">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="expense">Expenses</button>
+                <button class="tab-btn" data-tab="budget">Budget</button>
+            </div>
+            <div class="tab-content expense active" id="expense">
+                <div class="toolbar">
+                    <button class="add-expense-btn">
+                        <i class="bi bi-plus-circle"></i>
+                        <span>&nbsp;Add Expenses</span>
+                    </button>
+                </div>
+
+                <div class="expense-list">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Expense #</th>
+                                <th>Date</th>
+                                <th>Total Amount</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbodyExpenseList">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-content budget" id="budget">
+                <div class="toolbar">
+                    <button class="add-budget-btn">
+                        <i class="bi bi-plus-circle"></i>
+                        <span>&nbsp;Add Budget</span>
+                    </button>
+                </div>
+
+                <div class="budget-history">
+                    <table>
+                        <thead>
+                            <th>Budget Number</th>
+                            <th>Source</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                            <th>Actions</th>
+                        </thead>
+                        <tbody id="tbodyBudgetHistory"> </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="modals">
+            <div class="modal add-expense">
+                <div class="window">
+                    <h3 class="window-header"><span class="title">Add Expenses</span><span
+                            class="close-btn">&times;</span></h3>
+                    <form action="" class="window-form" id="formExpense">
+                        <div class="form-toolbar">
+                            <div class="form-buttons">
+                                <button id="btnAddExpenseDetail"><i class="bi bi-plus-circle"></i>&nbsp;Detail</button>
+                                <button id="btnSaveExpense" type="submit"><i
+                                        class="bi bi-floppy"></i>&nbsp;Save</button>
+                            </div>
+                            <p id="expenseNumber">Expense Number: -- New Expense --</p>
+                        </div>
+                        <div class="form-content">
+                            <div class="form-header">
+                                <input name="intExpenseId" hidden></input>
+                                <div>
+                                    <label for="dclTotalAmount">Total Amount:</label>
+                                    <input type="number" id="dclTotalAmount" name="dclTotalAmount" readonly></input>
+                                </div>
+                                <div>
+                                    <label for="dtmDate">Date:</label>
+                                    <input type="date" id="dtmDate" name="dtmDate" required></input>
+                                </div>
+                            </div>
+                            <div class=" form-table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Description</th>
+                                            <th>Category</th>
+                                            <th>Amount</th>
+                                            <th>🗑️</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbodyExpenseFormTable">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </form>
+                    <h5 class="window-footer">Add Expenses</h5>
+                </div>
+            </div>
+            <div class="modal add-budget">
+                <div class="window">
+                    <h3 class="window-header">Add Budget<span class="close-btn">&times;</span>
+                    </h3>
+                    <form action="" class="window-form" id="formBudget">
+                        <div class="form-toolbar">
+                            <div class="form-buttons">
+                                <button type="submit"><i class="bi bi-floppy"></i>&nbsp;Save</button>
+                            </div>
+                        </div>
+                        <div class="form-content">
+                            <div class="form-header">
+                                <div>
+                                    <label for="strSource">Source:</label>
+                                    <select name="strSource" required></select></td>
+                                </div>
+                                <div>
+                                    <label for="dtmDate">Date:</label>
+                                    <input type="date" name="dtmDate" required></input>
+                                </div>
+                                <div>
+                                    <label for="dclTotalAmount">Total Amount:</label>
+                                    <input name="dclTotalAmount" required></input>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <h5 class="window-footer">Add Budget</h5>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notifications -->
+        <section class="notifications">
+            <!-- Toast Notifications -->
+            <div id="toast-success" class="toast-success"></div>
+            <div id="toast-error" class="toast-error"></div>
+
+            <!-- Prompt Message -->
+            <div class="modal alert-delete">
+                <div class="window">
+                    <h1 class="delete-title"><i class="bi bi-trash3-fill"></i> Delete!</h1>
+                    <p id="delete-message"></p>
+                    <div class="message-buttons">
+                        <button class="btn-yes">Yes</button>
+                        <button class="btn-no">No</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">Made with ❤️ by John Dave</footer>
+</body>
+
+</html>

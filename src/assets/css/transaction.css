@@ -1,0 +1,352 @@
+/* #region Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* #endregion */
+
+/* #region Window */
+.window {
+    position: relative;
+    background: #fff;
+    margin: 50px auto;
+    width: 700px;
+    border-radius: 2px;
+    height: 600px;
+    border: 3px solid var(--secondary-color);
+}
+
+.window .close-btn {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.window .window-header {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--secondary-color);
+}
+
+.window .window-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 5px;
+    background-color: var(--secondary-color);
+}
+
+@media (max-width: 1000px) {
+    .window {
+        height: 450px;
+        width: 300px;
+    }
+
+    .window .form-header {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/* #endregion */
+
+/* #region Window Form */
+.window-form .form-toolbar button {
+    height: 34px;
+    font-size: 16px;
+    padding: 0 8px;
+    color: var(--white);
+    background-color: var(--primary-color);
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.window-form .form-toolbar button:hover {
+    background-color: var(--primary-color-light);
+}
+
+.window-form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+}
+
+.window-form .form-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px 0;
+    white-space: nowrap;
+}
+
+.window-form .form-header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #efeeee;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+.window-form .form-header div {
+    display: flex;
+    flex-direction: column;
+}
+
+.window-form .form-header input,
+.window-form .form-header select {
+    background-color: var(--white);
+    padding: 4px;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.window-form .form-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border: 1px solid black;
+    padding: 8px;
+    border-radius: 8px;
+    max-height: 440px;
+}
+
+@media (max-width: 1000px) {
+    .window-form .form-toolbar {
+        flex-direction: column-reverse;
+        align-items: start;
+    }
+
+    .window-form .form-content {
+
+        height: 280px;
+    }
+}
+
+/* #endregion */
+
+/* #region Window Form Table */
+.window-form .form-table-container {
+    height: 370px;
+    overflow-y: auto;
+}
+
+.window-form table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.window-form table thead tr {
+    position: sticky;
+    top: 0;
+}
+
+.window-form table thead tr th,
+.window-form table tbody tr td {
+    text-align: left;
+    border-bottom: 10px;
+    padding: 8px;
+
+}
+
+.window-form table thead tr,
+.window-form table tbody tr:nth-child(even) {
+    background-color: var(--secondary-color-light);
+}
+
+.window-form table tbody tr:nth-child(odd) {
+    background-color: var(--white);
+}
+
+.window-form table tbody tr td input,
+.window-form table tbody tr td select {
+    width: 97%;
+    margin: 0;
+    padding: 4px;
+    font-size: 14px;
+}
+
+/* #endregion */
+
+/* #region Override Budget Window  */
+.modal.add-budget .window {
+    top: 48px;
+    height: 400px;
+    width: 400px;
+}
+
+.modal.add-budget .window .form-header {
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal.add-budget .window .form-content {
+    height: 245px;
+}
+
+@media (max-width: 1000px) {
+    .modal.add-budget .window {
+        width: 300px;
+    }
+}
+
+/* #endregion */
+
+/* #region Transactions Tabs */
+.tabs {
+    display: flex;
+    align-items: flex-end;
+    border-bottom: 2px solid #ddd;
+    /* margin-bottom: 15px; */
+}
+
+.tab-btn {
+    position: relative;
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    border-bottom: none;
+    background: #f5f5f5;
+    cursor: pointer;
+    font-size: 16px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-right: 5px;
+    color: #555;
+}
+
+.tab-btn:hover {
+    background: #eaeaea;
+}
+
+.tab-btn.active {
+    background: var(--white);
+    border-color: #ddd;
+    border-bottom: 2px solid var(--white);
+    color: #000;
+    font-weight: 600;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* #endregion */
+
+/* #region Expense & Budget Tabs */
+
+.expense,
+.budget {
+    background-color: #fff;
+    padding: 10px;
+    width: 100%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 20px;
+}
+
+.expense .toolbar,
+.budget .toolbar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.expense .toolbar button,
+.budget .toolbar button {
+    display: flex;
+    align-items: center;
+    /* max-width: 200px; */
+    padding: 10px;
+    height: 40px;
+    border-radius: 10px;
+
+    border: none;
+    cursor: pointer;
+}
+
+.expense .toolbar button {
+    background-color: var(--danger);
+    color: var(--secondary-color-light);
+    font-weight: 600;
+}
+
+
+.budget .toolbar button {
+    background-color: var(--success);
+    color: var(--secondary-color-light);
+    font-weight: 600;
+}
+
+/* #endregion */
+
+/* #region Expense List */
+
+.expense-list,
+.budget-history {
+    max-height: 370px;
+    overflow: auto;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
+
+.expense-list table,
+.budget-history table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.expense-list table thead tr,
+.budget-history table thead tr {
+    position: sticky;
+    top: 0;
+    background-color: var(--hover-secondary-color);
+}
+
+.expense-list table tbody tr:nth-child(even),
+.budget-history table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.expense-list table tbody tr:nth-child(odd),
+.budget-history table tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.expense-list table tr th,
+.expense-list table tr td,
+.budget-history table th,
+.budget-history table td {
+    text-align: left;
+    padding: 10px;
+}
+
+.expense-list table tr .actions {
+    display: flex;
+    gap: 16px;
+}
+
+.expense-list table tr .action-edit {
+    color: var(--black);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.expense-list table tr .action-delete,
+.budget-history table tr .action-delete {
+    color: red;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* #endregion */
