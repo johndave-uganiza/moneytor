@@ -15,8 +15,10 @@
 /* #region Window */
 .window {
     position: relative;
+    top: 50%;
+    transform: translateY(-50%);
     background: #fff;
-    margin: 50px auto;
+    margin: 0 auto 0;
     width: 700px;
     border-radius: 2px;
     height: 600px;
@@ -177,7 +179,8 @@
 
 /* #region Override Budget Window  */
 .modal.add-budget .window {
-    top: 48px;
+    top: 50%;
+    transform: translateY(-50%);
     height: 400px;
     width: 400px;
 }
@@ -241,6 +244,12 @@
     display: block;
 }
 
+@media (max-width: 500px) {
+    .tab-content {
+        font-size: 12px;
+    }
+}
+
 /* #endregion */
 
 /* #region Expense & Budget Tabs */
@@ -267,26 +276,40 @@
 .budget .toolbar button {
     display: flex;
     align-items: center;
-    /* max-width: 200px; */
     padding: 10px;
     height: 40px;
     border-radius: 10px;
-
     border: none;
     cursor: pointer;
+    font-weight: 600;
+    color: var(--secondary-color-light);
 }
 
 .expense .toolbar button {
     background-color: var(--danger);
-    color: var(--secondary-color-light);
-    font-weight: 600;
 }
 
 
 .budget .toolbar button {
     background-color: var(--success);
-    color: var(--secondary-color-light);
-    font-weight: 600;
+}
+
+@media (max-width: 500px) {
+
+    .expense,
+    .budget {
+        white-space: nowrap;
+        padding: 12px;
+    }
+
+    .expense .toolbar button,
+    .budget .toolbar button {
+        height: 32px;
+        font-size: 12px;
+        padding: 8px;
+        font-weight: 400;
+
+    }
 }
 
 /* #endregion */
@@ -334,19 +357,34 @@
 .expense-list table tr .actions {
     display: flex;
     gap: 16px;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 .expense-list table tr .action-edit {
     color: var(--black);
-    font-size: 20px;
-    font-weight: 600;
 }
 
 .expense-list table tr .action-delete,
 .budget-history table tr .action-delete {
     color: red;
-    font-size: 20px;
-    font-weight: 600;
+}
+
+@media (max-width: 500px) {
+
+    .expense-list table tr th,
+    .expense-list table tr td,
+    .budget-history table th,
+    .budget-history table td {
+        padding: 4px;
+    }
+
+    .expense-list table tr .actions {
+        display: flex;
+        gap: 8px;
+        font-size: 12px;
+        font-weight: 400;
+    }
 }
 
 /* #endregion */

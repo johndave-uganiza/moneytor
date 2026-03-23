@@ -42,13 +42,35 @@
 .back-to-home {
     display: block;
     margin-left: auto;
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 400;
     color: var(--white);
     text-align: end;
+    white-space: nowrap;
 }
 
 .back-to-home:hover {
     color: var(--warning);
     transition: var(--tran-02);
+}
+
+@media (max-width: 800px) {
+    .login-form {
+        top: 60%;
+    }
+}
+
+@media (max-width: 550px) {
+    .login-form {
+        width: 300px;
+        height: 400px;
+    }
+
+    .back-to-home {
+        font-size: 12px;
+    }
+
+    /* .login-button {
+        height: 40px;
+    } */
 }
