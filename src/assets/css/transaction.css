@@ -244,7 +244,7 @@
     display: block;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
     .tab-content {
         font-size: 12px;
     }
@@ -294,7 +294,7 @@
     background-color: var(--success);
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
 
     .expense,
     .budget {
@@ -370,7 +370,7 @@
     color: red;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
 
     .expense-list table tr th,
     .expense-list table tr td,

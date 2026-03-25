@@ -35,7 +35,7 @@
 
 .header .search i {
     position: absolute;
-    left: 5px;
+    left: 4px;
     top: 50%;
     transform: translateY(-50%);
     width: 24px;
@@ -53,10 +53,17 @@
     }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 600px) {
     .header .search input {
         font-size: 12px;
+        height: 30px;
         width: 150px;
+    }
+
+    .header .search i {
+        left: 8px;
+        width: 12px;
+        height: 12px;
     }
 }
 
@@ -99,18 +106,20 @@ nav {
     padding: 5px 8px 40px;
     display: flex;
     flex-direction: column;
-    transition: width 0.5s ease;
+    transition: var(--tran-05);
 }
 
 nav.collapse {
     width: 70px;
+    transition: var(--tran-05);
 }
 
 nav.collapse~main,
 nav.collapse~header,
 nav.collapse~footer {
-    left: 70px;
-    width: calc(100% - 70px);
+    left: var(--nav-collapse-width);
+    width: calc(100% - var(--nav-collapse-width));
+    transition: var(--tran-05);
 }
 
 nav.collapse .menu-item {
@@ -128,6 +137,17 @@ nav.collapse .slider i {
     transform: rotate(180deg);
     right: 24px;
     cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    nav.collapse {
+        width: var(--nav-collapse-width) - 22px;
+        padding: 8px;
+    }
+
+    nav.collapse .slider i {
+        right: 150px;
+    }
 }
 
 /* #endregion */
@@ -161,6 +181,19 @@ nav.collapse .slider i {
     color: var(--secondary-color);
 }
 
+
+@media (max-width: 600px) {
+    .logo {
+        padding: 4px 0;
+        margin-bottom: 4px;
+    }
+
+    .logo-image {
+        height: 32px;
+        width: 32px;
+    }
+}
+
 /* #endregion */
 
 /* #region Slider */
@@ -171,7 +204,7 @@ nav.collapse .slider i {
     right: 0px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 30px;
+    font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -231,6 +264,12 @@ nav.collapse .slider i {
     color: var(--white);
 }
 
+@media (max-width: 600px) {
+    .menu-item a i {
+        font-size: 20px;
+    }
+}
+
 /* #endregion */
 
 /* #region Main */
@@ -244,6 +283,16 @@ main {
     padding: 16px 16px calc(var(--footer-height) + 16px);
     overflow-y: auto;
     transition: var(--tran-05)
+}
+
+@media (max-width: 600px) {
+
+    nav.collapse~main,
+    nav.collapse~header,
+    nav.collapse~footer {
+        left: 48px;
+        width: calc(100% - 48px);
+    }
 }
 
 main h2 {
