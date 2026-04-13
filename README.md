@@ -1,12 +1,12 @@
-# Readify
+# Moneytor
 
-Moneytor is a **multi-page expense tracker web application** built using **HTML**, **CSS**, and **JavaScript**.
+Moneytor is a **Multi-Page Expense Tracker Web Application** built using **HTML**, **CSS**, and **JavaScript**.
 Users can manage expenses and budgets as well as monitor expenses easily.
 
 ---
 
 ## Features
-- Well structured **Multi-page application** with **HTML**.
+- Well structured **Multi-Page Application** with **HTML**.
 - Responsive and beautiful design using **CSS**.
 - Reliable CRUD, computation, and validation functionalities with **JavaScript**.
 - Implements **MVC Pattern** for clean separation of concerns.
