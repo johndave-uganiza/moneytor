@@ -8,7 +8,7 @@ Users can manage expenses and budgets as well as monitor expenses easily.
 ## Features
 - Well structured **Multi-Page Application** with **HTML**.
 - Responsive and beautiful design using **CSS**.
-- Reliable CRUD, computation, and validation functionalities with **JavaScript**.
+- Reliable CRUD, computation, and notification functionalities with **JavaScript**.
 - Implements **MVC Pattern** for clean separation of concerns.
 - Stores data using **Local Storage**.
 
