@@ -1,4 +1,4 @@
-import Auth from "../services/auth/auth.js";
+import Auth from "../auth/auth.js";
 import LoginView from "../views/pages/LoginView.js";
 
 const view = LoginView;

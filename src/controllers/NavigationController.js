@@ -1,4 +1,4 @@
-import Auth from "../services/auth/auth.js";
+import Auth from "../auth/auth.js";
 import NavigationView from "../views/partial/NavigationView.js";
 
 const view = NavigationView;

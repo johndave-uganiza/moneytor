@@ -1,7 +1,7 @@
 function getAuth() {
     return {
-        username: 'Admin',
-        password: 'Moneytor_Demo.2026',
+        username: 'Admin_Demo',
+        password: 'Admin_Demo123',
         role: 'admin',
         isLoggedIn: false
     };

@@ -1,4 +1,4 @@
-/* Common Index Styles Start */
+/* #region Common */
 body {
     font-family: 'Poppins', 'sans-serif';
     background-color: var(--white);
@@ -27,12 +27,9 @@ li {
 section {
     display: flex;
     flex-direction: column;
-    padding: 70px;
     justify-content: center;
     align-items: center;
-    gap: 40px;
-    text-align: center;
-    min-height: 100vh;
+    margin-bottom: 6rem;
 }
 
 p {
@@ -54,16 +51,14 @@ input {
     border-radius: 10px;
 }
 
-footer {
-    max-width: 100%;
-    background-color: var(--white);
-    height: 150px;
-    box-shadow: 0 1px 40px rgba(0, 0, 0, 0.1);
+.section-title {
+    margin-bottom: 24px;
+    text-align: center;
 }
 
-/* Common Index Styles End */
+/* #endregion */
 
-/* Header Styles Start */
+/* #region Header */
 .header {
     position: fixed;
     display: flex;
@@ -98,6 +93,7 @@ footer {
     justify-content: space-between;
     font-size: 20px;
     font-weight: 400;
+    padding: 0 4px;
 }
 
 .header nav ul {
@@ -185,6 +181,26 @@ footer {
         font-size: 20px;
         font-weight: 600;
     }
+
+    .header .nav-links {
+        font-size: 18px;
+        font-weight: lighter;
+    }
+}
+
+@media (max-width: 800px) {
+    .header {
+        height: 140px;
+    }
+
+    .header .nav-links {
+        position: absolute;
+        left: 0;
+        top: 86px;
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+    }
 }
 
 @media (max-width: 700px) {
@@ -210,21 +226,6 @@ footer {
     }
 }
 
-@media (max-width: 800px) {
-    .header {
-        height: 140px;
-    }
-
-    .header .nav-links {
-        position: absolute;
-        left: 0;
-        top: 86px;
-        width: 100%;
-        display: flex;
-        justify-content: space-evenly;
-    }
-}
-
 @media (max-width: 500px) {
     .header .title {
         font-size: 24px;
@@ -240,13 +241,13 @@ footer {
     }
 }
 
-/* Header Styles End */
+/* #endregion */
 
-/* Hero Section Style Start */
+/* #region Hero Section */
 .hero-section {
     position: relative;
     height: 100vh;
-    gap: 35px;
+    gap: 1rem;
 }
 
 .hero-section .bg-img {
@@ -260,58 +261,189 @@ footer {
     top: 0;
     left: 0;
     z-index: -1;
-    opacity: 0.3;
+    opacity: 0.6;
 }
 
-.hero-section .title {
-    font-size: 60px;
-    font-weight: 800;
-    color: var(--black);
-    padding-top: 0;
+.hero-section-carousel {
+    position: relative;
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70rem;
+    height: 36rem;
+    opacity: 85%;
+    border-radius: 1.5rem;
+    overflow: hidden;
+}
+
+.hero-section .content-wrapper {
+    height: 100%;
+    width: 100%;
+    border-radius: inherit;
+}
+
+.hero-section-carousel .img-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 1);
+    border-radius: inherit;
+
+}
+
+/* Create a virtual element to wrap the image by a percentage of primary color */
+.hero-section-carousel .img-container::after {
+    position: absolute;
+    content: "";
+    /* inset:0 fills all edges --> top: 0, right: 0, bottom: 0, left: 0 */
+    inset: 0;
+    background-color: rgba(from var(--primary-color) r g b / 0.35);
+    border-radius: inherit;
+}
+
+.hero-section-carousel .img-container img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+.hero-section .content-wrapper .title {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    translate: -50% 0;
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: var(--white);
     transition: var(--tran-05);
+    text-align: center;
+    z-index: 1;
 }
 
-.hero-section .title:hover {
-    transform: scale(1.1);
+.hero-section-carousel span.prev,
+.hero-section-carousel span.next {
+    position: absolute;
+    transform: translateY(-50%);
+    z-index: 1;
+    color: var(--white);
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.hero-section-carousel span.prev {
+    top: 50%;
+    left: 4%;
+}
+
+.hero-section-carousel span.next {
+    top: 50%;
+    right: 4%;
 }
 
 .hero-section .discover-tracking-features-button {
-    font-size: 25px;
-    font-weight: 600;
-    padding: 15px 25px;
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    translate: -50% 0;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 1rem;
     background: transparent;
     backdrop-filter: blur(2px);
-    border-radius: 20px;
+    border-radius: 1.75rem;
     transition: var(--tran-05);
+    color: var(--white);
+    background: rgba(from var(--success) r g b / 0.9);
+    border: none;
+    z-index: 1;
 }
 
 .hero-section .discover-tracking-features-button:hover {
-    background: var(--primary-lg-color);
-    color: var(--white);
-    transform: scale(1.1);
+    background: rgba(136, 252, 98, 0.8);
+    color: var(--black);
+    font-weight: 600;
+    scale: 1.1;
 }
 
 .hero-section .discover-tracking-features-button:hover i {
     transform: rotate(90deg);
 }
 
+.hero-section .dash-container {
+    position: absolute;
+    bottom: 8%;
+    left: 50%;
+    translate: -50% 0;
+    height: 5%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.hero-section .dash {
+    position: relative;
+    background-color: white;
+    height: 0.25rem;
+    width: 1.5rem;
+    z-index: 1;
+}
+
+.hero-section .dash.active {
+    background-color: var(--warning);
+}
+
+@media (max-width: 1300px) {
+    .hero-section-carousel .content-wrapper .title {
+        font-size: 55px;
+    }
+
+    .hero-section-carousel {
+        position: relative;
+        margin-top: 4rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 55rem;
+        height: 30rem;
+        opacity: 85%;
+        border-radius: 1.5rem;
+        overflow: hidden;
+    }
+}
 
 @media (max-width: 1000px) {
     .hero-section {
         gap: 40px;
     }
 
-    .hero-section .title {
+    .hero-section-carousel .content-wrapper .title {
         font-size: 40px;
-        font-weight: 800;
+    }
+
+    .hero-section-carousel {
+        width: 40rem;
+        height: 28rem;
+    }
+}
+
+@media (max-width: 800px) {
+    .hero-section-carousel {
+        width: 30rem;
+        height: 24rem;
     }
 
     .hero-section .discover-tracking-features-button {
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 700;
-        padding: 8px 10px;
-        background-color: var(--white);
-        border-radius: 15px;
+        padding: 10px 12px;
+        bottom: 16%;
+
     }
 }
 
@@ -320,17 +452,15 @@ footer {
         gap: 30px;
     }
 
-    .hero-section .title {
-        font-size: 29px;
-        font-weight: 700;
-    }
-
     .hero-section .discover-tracking-features-button {
         font-size: 14px;
-        font-weight: 600;
-        padding: 8px 10px;
-        background-color: var(--black-light);
-        border-radius: 15px;
+        font-weight: 700;
+        padding: 10px 12px;
+    }
+
+    .hero-section-carousel {
+        width: 30rem;
+        height: 24rem;
     }
 }
 
@@ -339,23 +469,26 @@ footer {
         gap: 20px;
     }
 
-    .hero-section .title {
-        font-size: 26px;
-        font-weight: 600;
+    .hero-section-carousel .content-wrapper .title {
+        font-size: 34px;
     }
 
     .hero-section .discover-tracking-features-button {
-        font-size: 12px;
-        font-weight: 600;
-        padding: 6px 8px;
-        background-color: var(--black-light);
-        border-radius: 15px;
+        font-size: 14px;
+        padding: 14px 16px;
+        bottom: 16%;
+
+    }
+
+    .hero-section-carousel {
+        width: 20rem;
+        height: 24rem;
     }
 }
 
-/* Hero Section Style End */
+/* #endregion */
 
-/* Complete Expense Management Section Start */
+/* #region Reliable Expense Management Section */
 .reliable-expense-management-section {
     padding-bottom: 0;
 }
@@ -415,7 +548,7 @@ footer {
     }
 }
 
-/* Complete Expense Management Section End */
+/* #endregion */
 
 
 /* #region Send Us a Message */

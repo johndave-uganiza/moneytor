@@ -4,7 +4,7 @@ import BudgetController from './controllers/BudgetController.js';
 import LoginController from './controllers/LoginController.js';
 import IndexController from './controllers/IndexController.js';
 import utils from './utils/utils.js';
-import Auth from './services/auth/auth.js';
+import Auth from './auth/auth.js';
 import NavigationController from './controllers/NavigationController.js';
 import TransactionController from './controllers/TransactionController.js';
 

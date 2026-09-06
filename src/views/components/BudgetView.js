@@ -66,8 +66,6 @@ function handleShowAddBudgetModal() {
     const formEl = form.elements;
 
     function show() {
-        console.log(form);
-
         form.reset();
         const sources = Moneytor.utils.constants.sources;
         const selectSource = formEl.namedItem('strSource');

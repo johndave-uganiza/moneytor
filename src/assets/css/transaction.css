@@ -314,7 +314,7 @@
 
 /* #endregion */
 
-/* #region Expense List */
+/* #region Expense & Budget History Tables */
 
 .expense-list,
 .budget-history {
@@ -354,7 +354,8 @@
     padding: 10px;
 }
 
-.expense-list table tr .actions {
+.expense-list table tr .actions,
+.budget-history table tr .actions {
     display: flex;
     gap: 16px;
     font-size: 20px;
