@@ -19,8 +19,8 @@ Users can manage expenses and budgets as well as monitor expenses easily.
 
 ## Admin Demo Credentials
 
-- **Username:** Admin
-- **Password:** Moneytor_Demo.2026
+- **Username:** Admin_Demo
+- **Password:** Admin_Demo123
 
 > ⚠️ These credentials are **for demo purposes only**.
 > Please do **not** put real production credentials.
